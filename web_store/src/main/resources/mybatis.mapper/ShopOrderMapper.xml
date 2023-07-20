@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.webstore.dao.mapper.ShopOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="ShopOrderResultMap" type="com.example.webstore.dao.model.ShopOrder">
+        <id property="id" column="id" />
+        <result property="orderNo" column="order_no" />
+        <result property="userId" column="user_id" />
+        <result property="totalPrice" column="total_price" />
+        <result property="payStatus" column="pay_status" />
+        <result property="payType" column="pay_type" />
+        <result property="payTime" column="pay_time" />
+        <result property="orderStatus" column="order_status" />
+        <result property="extraInfo" column="extra_info" />
+        <result property="userName" column="user_name" />
+        <result property="userPhone" column="user_phone" />
+        <result property="userAddress" column="user_address" />
+        <result property="isDeleted" column="is_deleted" />
+        <result property="createTime" column="create_time" />
+        <result property="updateTime" column="update_time" />
+    </resultMap>
+    <select id="getOrderById" resultMap="ShopOrderResultMap" parameterType="java.lang.Long">
+        SELECT *
+        FROM web_store.shoporder
+        WHERE id = #{id}
+    </select>
+
+    <select id="getAllOrders" resultMap="ShopOrderResultMap">
+        SELECT *
+        FROM web_store.shoporder
+    </select>
+
+    <insert id="createOrder" parameterType="com.example.webstore.dao.model.ShopOrder">
+        INSERT INTO web_store.shoporder (order_no, user_id, total_price, pay_status, pay_type, pay_time, order_status, extra_info, user_name, user_phone, user_address, is_deleted, create_time, update_time)
+        VALUES (#{orderNo}, #{userId}, #{totalPrice}, #{payStatus}, #{payType}, #{payTime}, #{orderStatus}, #{extraInfo}, #{userName}, #{userPhone}, #{userAddress}, #{isDeleted}, #{createTime}, #{updateTime})
+    </insert>
+
+    <update id="updateOrder" parameterType="com.example.webstore.dao.model.ShopOrder">
+        UPDATE web_store.shoporder
+        SET order_no = #{orderNo}, user_id = #{userId}, total_price = #{totalPrice}, pay_status = #{payStatus}, pay_type = #{payType}, pay_time = #{payTime}, order_status = #{orderStatus}, extra_info = #{extraInfo}, user_name = #{userName}, user_phone = #{userPhone}, user_address = #{userAddress}, is_deleted = #{isDeleted}, update_time = #{updateTime}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteOrder" parameterType="java.lang.Long">
+        DELETE FROM web_store.shoporder
+        WHERE id = #{id}
+    </delete>
+
+</mapper>

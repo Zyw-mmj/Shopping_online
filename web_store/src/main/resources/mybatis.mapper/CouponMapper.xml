@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.webstore.dao.CouponMapper">
+    <resultMap id="BaseResultMap" type="com.example.webstore.entity.Coupon">
+        <id column="coupon_id" jdbcType="BIGINT" property="couponId"/>
+        <result column="coupon_name" jdbcType="VARCHAR" property="couponName"/>
+        <result column="coupon_desc" jdbcType="VARCHAR" property="couponDesc"/>
+        <result column="coupon_total" jdbcType="INTEGER" property="couponTotal"/>
+        <result column="discount" jdbcType="INTEGER" property="discount"/>
+        <result column="min" jdbcType="INTEGER" property="min"/>
+        <result column="coupon_limit" jdbcType="TINYINT" property="couponLimit"/>
+        <result column="coupon_type" jdbcType="TINYINT" property="couponType"/>
+        <result column="coupon_status" jdbcType="TINYINT" property="couponStatus"/>
+        <result column="goods_type" jdbcType="TINYINT" property="goodsType"/>
+        <result column="goods_value" jdbcType="VARCHAR" property="goodsValue"/>
+        <result column="coupon_code" jdbcType="VARCHAR" property="couponCode"/>
+        <result column="coupon_start_time" jdbcType="TIMESTAMP" property="couponStartTime"/>
+        <result column="coupon_end_time" jdbcType="TIMESTAMP" property="couponEndTime"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="is_deleted" jdbcType="TINYINT" property="isDeleted"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        coupon_id, coupon_name, coupon_desc, coupon_total, discount, min, coupon_limit, coupon_type,
+        coupon_status, goods_type, goods_value, coupon_code, coupon_start_time, coupon_end_time, create_time,
+        update_time, is_deleted
+    </sql>
+
+</mapper>

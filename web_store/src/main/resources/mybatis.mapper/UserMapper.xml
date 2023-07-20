@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.webstore.dao.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.webstore.dao.model.User">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="account" property="account" />
+        <result column="password" property="password" />
+        <result column="phonenumber" property="phonenumber" />
+        <result column="email" property="email" />
+        <result column="city" property="city" />
+        <result column="gender" property="gender" />
+        <result column="bankaccount" property="bankaccount" />
+        <result column="shoptype" property="shoptype" />
+        <result column="status" property="status" />
+        <result column="rating" property="rating" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name ,account,password,phonenumber,email,city,gender,bankaccount,shoptype,status,rating
+    </sql>
+
+    <sql id="getPasswordByAccount" >
+
+    </sql>
+
+
+</mapper>

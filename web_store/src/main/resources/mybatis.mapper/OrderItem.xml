@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.webstore.dao.mapper.GoodsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.webstore.dao.model.OrderItem">
+        <id column="id" property="id" />
+        <result column="price" property="price" />
+        <result column="categorie" property="categorie" />
+        <result column="size" property="size" />
+        <result column="picture" property="picture" />
+        <result column="describes" property="describes" />
+        <result column="goodsname" property="goodsname" />
+        <result column="rating" property="rating" />
+        <result column="sales" property="sales" />
+        <result column="businessAccount" property="businessAccount" />
+        <result column="stock" property="stock" />
+        <result column="tradeway" property="tradeway" />
+        <result column="status" property="status" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, price,categorie,size,picture, describes ,goodsname ,rating,sales,businessAccount,stock,tradeway,status
+    </sql>
+
+</mapper>

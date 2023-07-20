@@ -1,0 +1,50 @@
+
+# DataSource Config
+spring:
+  mvc:
+    converters:
+      - stringHttpMessageConverter:
+          supportedMediaTypes:
+            - application/x-www-form-urlencoded
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    #username: mpw:3hzhQGiDZP+uiHRzcJ26gw==
+    password: 123456
+    url: jdbc:mysql://localhost:3306/web_store?serverTimezone=Asia/Shanghai&useUnicode=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&characterEncoding=utf-8
+    #url: jdbc:p6spy:mysql://localhost:3306/web_store?serverTimezone=Asia/Shanghai&useUnicode=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&characterEncoding=utf-8
+    #driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+
+#  mybatis plus setting
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: valid
+      logic-delete-value: 0 # ??
+      logic-not-delete-value: 1 # ???
+      id-type: auto  # idType:auto
+  type-enums-package: org.spb.course.constant
+  mapper-locations: classpath:com/example/webstore/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
+    map-underscore-to-camel-case: false
+
+  mapper-default-scope: com/example/webstore/mapper/*.xml
+  #type-handlers-package: com.baomidou.mybatisplus.extension.handlers,org.spb.course.dao.mybatis.handler
+  spring:
+    mvc:
+      servlet:
+        load-on-startup=1:
+
+server:
+  servlet:
+    session:
+      timeout: 1800 # Session 过期时间，单位为秒
+      cookie:
+        name: MY_SESSION_ID # Session ID 的 cookie 名称
+        domain: example.com # Session ID 的 cookie 域名
+        path: /myapp # Session ID 的 cookie 路径
+        max-age: -1 # Session ID 的 cookie 最大存活时间，-1 表示浏览器关闭时失效
+        http-only: true # Session ID 的 cookie 是否只能通过 HTTP 协议访问
+        secure: true # Session ID 的 cookie 是否只能通过 HTTPS 协议访问
+
